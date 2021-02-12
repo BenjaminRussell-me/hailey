@@ -1,8 +1,9 @@
 <template>
-  <audio id="audio" >
-    <source src="../assets/sounds/squeak.mp3">
-  </audio>
+
   <div id="totoHolder" @click="playSqueak()">
+    <transition name="fade">
+    <h1 v-if="message !== ''">{{message}}</h1>
+    </transition>
     <svg id="heartsvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.25 92.62"><defs></defs><g id="heart" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M92.45,67.76C78.74,80.86,65.71,89.62,57.07,92.59l-.09,0-.09,0c-8.64-3-21.66-11.73-35.37-24.83-10-9.55-38.67-44.44-7.11-65.33C27.94-6.53,50.13,11.71,57,17.9,63.83,11.71,85.87-6.3,99.56,2.43,129.51,21.54,102.45,58.21,92.45,67.76Z"/></g></g></svg>
     <svg id="toto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 444.43 588.66"><g id="Layer_2" data-name="Layer 2"><g
         id="totoSVG" data-name="Layer 1">
@@ -68,15 +69,39 @@
 
 <script>
 export default {
+  data(){
+    return{
+      counter: 0,
+      message: '',
+    }
+  },
   methods:{
     playSqueak(){
-        const squeak = document.querySelector('#audio')
-        squeak.play()
+          this.counter++
+          const url = this.getSound('squeak.mp3') 
+          const squeak = new Audio(url);
+          squeak.play()
+          this.checkTimes()
+    },
+    getSound(sound){
+      return require(`../assets/sounds/${sound}`)
+    },
+    checkTimes(){
+      if(this.counter === 2){
+        this.message = 'I love you Hailey'
+      }
     }
   }
 }
 </script>
 <style scoped lang="scss">
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s ease;
+}
+
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
 #totoHolder{
  height: 60vh;
   width: 50vh;
@@ -85,6 +110,12 @@ export default {
   display: grid;
   &:active{
     transform: scale(0.95) rotate(-2deg);
+  }
+  h1 {
+    grid-area: 1/1/1/1;
+    align-self: start;
+    justify-self: center;
+    transform: translateY(-10vh);
   }
   #toto{
     grid-area: 1/1/1/1;
