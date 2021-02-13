@@ -87,8 +87,23 @@ export default {
       return require(`../assets/sounds/${sound}`)
     },
     checkTimes(){
-      if(this.counter === 2){
-        this.message = 'I love you Hailey'
+      switch(this.counter) {
+        default :
+        this.message = ''
+        break;
+        case 2:
+          this.message = 'Happy Valentiens Day BB'
+          break;
+        case 4:
+          this.message = "I love you so much"
+          break;
+          case 6:
+            this.message = "<3"
+            break;
+
+            case 100:
+              this.message = "really?? you hit it 100 times???"
+              break;
       }
     }
   }
@@ -115,7 +130,9 @@ export default {
     grid-area: 1/1/1/1;
     align-self: start;
     justify-self: center;
-    transform: translateY(-10vh);
+    transform: translateY(-13vh);
+    font-family: sans-serif;
+    text-align: center;
   }
   #toto{
     grid-area: 1/1/1/1;
