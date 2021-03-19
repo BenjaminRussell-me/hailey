@@ -92,7 +92,7 @@ export default {
         this.message = ''
         break;
         case 2:
-          this.message = 'Happy Valentiens Day BB'
+          this.message = 'You are my favorite person'
           break;
         case 4:
           this.message = "I love you so much"
