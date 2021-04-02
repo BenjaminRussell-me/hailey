@@ -3,40 +3,42 @@
     <nav>
       <button @click="changeView('Toto')">Totoro</button>
       <button @click="changeView('Dino')">Dino</button>
+      <button @click="changeView('Pusheen')">Pusheen</button>
     </nav>
     <component v-bind:is="view" />
   </div>
-
 </template>
 
 <script>
-import { defineComponent } from 'vue'
-import Toto from './components/Toto.vue'
-import Dino from './components/Dino.vue'
+import { defineComponent } from "vue";
+import Toto from "./components/Toto.vue";
+import Dino from "./components/Dino.vue";
+import Pusheen from "./components/Pusheen.vue";
 export default defineComponent({
-  name: 'App',
+  name: "App",
   data() {
     return {
-      view: 'Toto'
-    }
+      view: "Toto",
+    };
   },
   methods: {
     changeView(to) {
-      this.view = to
-    }
+      this.view = to;
+    },
   },
   components: {
     Toto,
-    Dino
-  }
-})
+    Dino,
+    Pusheen,
+  },
+});
 </script>
 
 <style lang="scss">
-body{
+body {
   margin: 0;
 }
-#holder{
+#holder {
   width: 100vw;
   height: 100vh;
   display: grid;
