@@ -68,6 +68,9 @@ export default {
   &:active {
     transform: scale(0.95) rotate(2deg);
   }
+  img {
+    width: 100%;
+  }
   h1 {
     grid-area: 1/1/1/1;
     align-self: start;
