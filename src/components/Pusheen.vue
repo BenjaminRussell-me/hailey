@@ -70,6 +70,7 @@ export default {
   }
   img {
     width: 100%;
+    pointer-events: none;
   }
   h1 {
     grid-area: 1/1/1/1;
