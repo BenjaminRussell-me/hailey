@@ -32,7 +32,7 @@ export default {
           this.message = "";
           break;
         case 2:
-          this.message = "I'm sorry I keep hurting you :(";
+          this.message = "Love you bb";
           break;
         case 4:
           this.message = "I hope Mr. Pusheen makes you smile";
